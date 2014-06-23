@@ -146,26 +146,3 @@ class RSAKey:
         return "n = " + str(self.n) + "\n" + \
         "e = " + str(self.e) + "\n" + \
         "d = " + str(self.d)
-    
-# class RSA:
-#     @classmethod
-#     def generateKeys(cls, bits):
-#         """
-#         Returns a key of requested length.
-#         """
-#         # iterate until all conditions are satisfied
-#         while True:
-#             p = ml.prime(bits >> 1)
-#             q = ml.prime(bits >> 1)
-#             n = p * q
-#             # p-q should not be "small"
-#             if abs(p-q) > 10**10:
-#                 phi = (p-1) * (q-1)
-#                 e = 0
-#                 while (gcd(phi, e) != 1):
-#                     # e < phi and is at most 3 bytes long
-#                     e = SystemRandom().randrange(2, min(phi, 1<<24))
-#                 d = ml.inverseMod(e, phi)
-#                 # d must be long enough to prevent attacks
-#                 if d.bit_length() > n.bit_length()/4:
-#                     return RSAKey(n, e, d, p, q)
